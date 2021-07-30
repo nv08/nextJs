@@ -13,14 +13,12 @@ export default function Home() {
   useEffect(() => {
     const { searchQueryAuthor, searchQueryKey, order } = location.query;
 
-   
     Object.keys(location.query).length > 0
       ? seturl(
           `http://localhost:4000/api/posts/?author=${searchQueryAuthor}&key=${searchQueryKey}&order=${order}`
         )
       : seturl("http://localhost:4000/api/posts/");
-      },[location.query])
-
+  }, [location.query]);
 
   if (!data) {
     return <div> loading..</div>;

@@ -11,22 +11,20 @@ export default function Permissions() {
     return <div>loading...</div>;
   }
 
-   function changeRole(author) {
+  function changeRole(author) {
     const id = author.target.id;
 
     const role = author.target.checked ? "Author" : "Editor";
 
     const url = `http://localhost:4000/role/change/${id}/${role}`;
 
- const res = fetch(url, {
+    const res = fetch(url, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-    }).then(x=>console.log(x));
-    location.reload()
- 
-    
+    }).then((x) => console.log(x));
+    location.reload();
   }
   return (
     <>

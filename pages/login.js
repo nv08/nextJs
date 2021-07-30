@@ -21,7 +21,6 @@ function Login(props) {
     setinputData({ ...inputData, [fieldname]: e.target.value });
   };
 
-
   async function fetchData() {
     const res = await fetch("http://localhost:4000/api/user/login", {
       method: "POST",
@@ -35,16 +34,16 @@ function Login(props) {
     });
     if (res.status === 200) {
       const response = await res.json();
-      toast.success('login Success!',{
-        hideProgressBar:true,
-        position:'top-center'
-      })
+      toast.success("login Success!", {
+        hideProgressBar: true,
+        position: "top-center",
+      });
       makeCookie(response);
     } else {
-      toast.error('Invalid Credentials!',{
-        position:'top-center',
-        hideProgressBar:true
-      })
+      toast.error("Invalid Credentials!", {
+        position: "top-center",
+        hideProgressBar: true,
+      });
       location.push({ pathname: "/login" });
     }
   }
@@ -77,7 +76,7 @@ function Login(props) {
           <label className="label-form">
             <b>EMAIL</b>
           </label>
-        <Input name="email" onChange={(e) => handle(e)} />
+          <Input name="email" onChange={(e) => handle(e)} />
 
           <label className="label-form">
             <b>PASSWORD</b>

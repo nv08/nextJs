@@ -8,11 +8,11 @@ import Input from "../components/input/Input";
 export default function Register() {
   const location = useRouter();
   const [inputValue, setinputValue] = useState({
-    email:  "",
+    email: "",
     pass: "",
     username: "",
   });
-console.log(inputValue);
+  console.log(inputValue);
   const handle = (e) => {
     const fieldname = e.target.name;
     setinputValue({ ...inputValue, [fieldname]: e.target.value });
@@ -31,22 +31,22 @@ console.log(inputValue);
       }),
     });
     const response = await res.json();
-    if (res.status===200) {
+    if (res.status === 200) {
       toast.success("success!", {
         position: "top-center",
         hideProgressBar: true,
       });
       location.push({ pathname: "/login" });
     } else {
+      const error = response["errors"]
+        ? Object.values(response["errors"][0])[0]
+        : null;
 
-      const error = response['errors']?Object.values(response['errors'][0])[0]:null
-    
-      toast.error(error || response['msg'], {
+      toast.error(error || response["msg"], {
         position: "top-center",
         hideProgressBar: true,
       });
       location.push({ pathname: "/register" });
-      
     }
   }
   return (

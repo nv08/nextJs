@@ -113,8 +113,3 @@ export default function Utils() {
     </>
   );
 }
-
-export const Filter = async()=>{
-    const data = useSWR('http://localhost:4000/',fetcher)
-
-}
