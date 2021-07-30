@@ -17,6 +17,7 @@ export default function Permissions() {
     const role = author.target.checked ? "Author" : "Editor";
 
     const url = `http://localhost:4000/role/change/${id}/${role}`;
+   
 
     const res = fetch(url, {
       method: "PUT",
@@ -24,7 +25,7 @@ export default function Permissions() {
         "Content-Type": "application/json",
       },
     }).then((x) => console.log(x));
-    location.reload();
+    location.reload()
   }
   return (
     <>

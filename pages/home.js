@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import Loader from "react-loader-spinner";
 import useSWR from "swr";
 
 import Postrender from "../components/Postrender";
@@ -21,14 +22,16 @@ export default function Home() {
   }, [location.query]);
 
   if (!data) {
-    return <div> loading..</div>;
+    return (<aside> <Loader type="ThreeDots" color="#00BFFF" height={50} width={50} /></aside>)
   }
 
   if (error) {
     ("please try  again!");
   }
   return (
+
     <>
+    
       <Utils />
       <Postrender posts={data}></Postrender>
     </>

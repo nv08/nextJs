@@ -688,6 +688,10 @@ a.page-link {
   position: absolute;
   opacity: 0;
 }
+aside{
+  display: grid;
+  place-items: center;
+}
 
 /**
        * 1. Adjust this to size
